@@ -28,9 +28,11 @@ const TopicInput: React.FC<TopicInputProps> = ({
     }
   };
 
+  const isButtonDisabled = !inputValue.trim(); // Check if inputValue is empty or only whitespace
+
   return (
     <div className="mx-3 mt-5 p-5 transition duration-300 ease-in-out fade-in">
-      <label className="block text-xl font-extrabold transition duration-300 ease-in-out ">
+      <label className="block text-xl font-extrabold transition duration-300 ease-in-out">
         Brief your topic
       </label>
       <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out">
@@ -39,21 +41,26 @@ const TopicInput: React.FC<TopicInputProps> = ({
 
       <textarea
         ref={textareaRef}
-        rows={1} // Start with 1 row
+        rows={1}
         className={`p-3 w-full mb-4 mt-8 rounded-lg bg-gray-100 placeholder:italic placeholder:text-slate-400
-                   ${
-                     borderVisible ? "border" : "border-0"
-                   } transition duration-300 ease-in-out resize-none`} // "resize-none" prevents user resizing
+                    ${
+                      borderVisible ? "border" : "border-0"
+                    } transition duration-300 ease-in-out resize-none`}
         value={inputValue}
         onClick={handleInputClick}
         onChange={handleInputChange}
         placeholder="for eg: Artificial Intelligence"
-        style={{ overflowY: "hidden" }} // To hide vertical scrollbar
+        style={{ overflowY: "hidden" }}
       ></textarea>
 
       <button
-        className="bg-indigo-500 text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out hover:bg-indigo-700"
+        className={`text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out ${
+          isButtonDisabled
+            ? "bg-indigo-400"
+            : "hover:bg-indigo-700 bg-indigo-500"
+        }`}
         onClick={() => setCurrentStep(2)}
+        disabled={isButtonDisabled}
       >
         Continue
         <svg

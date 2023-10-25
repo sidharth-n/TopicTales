@@ -149,7 +149,7 @@ const App: React.FC = () => {
       )}
 
       {isLoading ? (
-        <div className="loader">Generating...</div>
+        <div className="loader text-base">Generating Tale...</div>
       ) : currentStep === 4 ? (
         <FinalScreen
           setCurrentStep={setCurrentStep}
