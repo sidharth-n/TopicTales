@@ -88,7 +88,7 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
       <div className="header">
         {currentStep > 1 ? (
           <button
-            className={`p-1 rounded-lg ml-5 ${
+            className={`p-1 rounded-lg ml-6 ${
               darkMode ? "bg-slate-800" : "bg-slate-100 hover:bg-slate-200 transition duration-300 ease-in-out"
             }`}
             onClick={() => setCurrentStep(currentStep - 1)}
@@ -116,10 +116,10 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
           <img
             src="https://imgtr.ee/images/2023/10/25/4bbbe29706b5fd46175b4a1eb048863b.png"
             alt="TopicTales"
-            className="logo-size title transition ease-in-out cursor-pointer m-3"
+            className="logo-size title transition ease-in-out cursor-pointer mt-5 mb-5"
           />
         </a>
-        <button className="mode-btn mr-3">
+        <button className="mode-btn mr-6">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
