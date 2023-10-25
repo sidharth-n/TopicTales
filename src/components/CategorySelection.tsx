@@ -14,7 +14,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
   isDarkMode,
 }) => {
   const categories = [
-    "Fantacy",
+    "Fantasy",
     "Fiction",
     "Manga",
     "Fun",
@@ -26,20 +26,18 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
   ];
 
   const toggleCategory = (category: string) => {
-    if (selectedCategories.includes(category)) {
-      setSelectedCategories([]);
-    } else {
-      setSelectedCategories([category]);
-    }
+    setSelectedCategories([category]); // Only set the selected category to the clicked one
   };
+
+  const isButtonDisabled = selectedCategories.length === 0;
 
   return (
     <div className="mx-3 mt-5 p-5">
-      <label className="block  text-xl font-extrabold ">
+      <label className="block text-xl font-extrabold">
         Pick a category you like
       </label>
       <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out mb-5">
-        We'll use these as an inspiration.
+        We'll use these as inspiration.
       </div>
       {categories.map((category) => (
         <button
@@ -60,8 +58,13 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
       ))}
       <div className="mt-4">
         <button
-          className="bg-indigo-500 text-white p-4 pl-8 pr-8 rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out hover:bg-indigo-700"
+          className={`text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out ${
+            isButtonDisabled
+              ? "bg-indigo-200"
+              : "hover:bg-indigo-700 bg-indigo-500"
+          }`}
           onClick={() => setCurrentStep(3)}
+          disabled={isButtonDisabled}
         >
           Continue
           <svg

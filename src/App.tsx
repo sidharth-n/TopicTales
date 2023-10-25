@@ -23,15 +23,25 @@ const App: React.FC = () => {
   const fetchStory = async () => {
     setIsLoading(true);
     const newPrompt = `
- Generate a ${selectedLevel}-level short interesting story in the ${selectedCategories[0]} category focused on the topic of ${topic}.
- the story is supposd be around 500 words and it shouls have a very short apt catchy title as well. use simple english words to make the story and finally i need a prorper short(around 100 words)
- expalantion of the topic. remember this is project to convert any topics to short story so focus ion the topic mentioned and make sue the topic is well explained in the story in a storytelling way. add proper characters and conversations as per required. i need the data back as a json response in the following format. do not sedn anything else than the json in the fommolwing format with 
- appropriate generated content. make sure to add proper like breaks in the stroy and paragraph tage so that i can use it direcly on my webste without worrying about formatting. here is the sampel json format required :
+Generate a short interesting story around 500 words long in the ${selectedCategories[0]} category focused on clearly explaining the concept of ${topic}.
+
+The story should have a very short, catchy 1-3 word title that hints at the topic as well. Use simple English words and terminology suitable for a general audience to tell the story.
+
+Properly incorporate the key ideas, principles, and aspects of ${topic} into the storyline in a contextual way. Add interesting characters and dialog as needed to make the explanation engaging. Break the story into proper paragraphs to aid readability. using <p></p> tags and </br> tags and other tags for readability. iam using this directy inside html
+
+After the story, provide a concise 100 word explanation of ${topic} using scientific terminology to summarize the main points covered in the story.
+
+Format the output as a JSON object with the story title, story content, and topic explanation as separate fields like this:
+
 {
-  "title": "The title of the story will be here",
-  "story": "The story content, limited to less than 1000 words, will be here",
-  "topic_explanation": "A brief explanation of the selected topic will be here"
-}
+
+"title": "Title here",
+
+"story": "Story content here",
+
+"topic_explanation": "topic explanation here"
+
+}. please do not give me any other information than the json in the requied format.
 `;
 
     try {
@@ -149,7 +159,7 @@ const App: React.FC = () => {
       )}
 
       {isLoading ? (
-        <div className="loader">Generating...</div>
+        <div className="loader text-base">Generating Tale...</div>
       ) : currentStep === 4 ? (
         <FinalScreen
           setCurrentStep={setCurrentStep}
