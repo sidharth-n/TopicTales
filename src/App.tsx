@@ -161,7 +161,7 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
       )}
 
       {isLoading ? (
-        <div className="loader">Generating...</div>
+        <div className="loader text-base">Generating Tale...</div>
       ) : currentStep === 4 ? (
         <FinalScreen
           setCurrentStep={setCurrentStep}

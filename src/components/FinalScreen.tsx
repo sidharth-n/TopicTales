@@ -24,9 +24,10 @@ const FinalScreen: React.FC<FinalScreenProps> = ({
           dangerouslySetInnerHTML={{ __html: response.story }}
         ></div>
         {/* If you want to display the topic explanation too */}
-        <p className="topic-explanation p-2 text-base pb-8 ">
-          {response.topic_explanation}
-        </p>
+        <p
+          className="topic-explanation p-2 text-base pb-8 "
+          dangerouslySetInnerHTML={{ __html: response.topic_explanation }}
+        ></p>
       </div>
     </div>
   );
