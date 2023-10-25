@@ -4,12 +4,14 @@ interface LevelSelectionProps {
   selectedLevel: string;
   setSelectedLevel: React.Dispatch<React.SetStateAction<string>>;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  fetchStory: () => Promise<void>; // Added this line
 }
 
 const LevelSelection: React.FC<LevelSelectionProps> = ({
   selectedLevel,
   setSelectedLevel,
   setCurrentStep,
+  fetchStory, // Added this line
 }) => {
   const levels = ["Child", "Teen", "Adult", "Elderly"];
 
@@ -19,6 +21,13 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
     } else {
       setSelectedLevel(level);
     }
+  };
+
+  const handleGenerateClick = async () => {
+    // Created a new function
+    console.debug("Generate button clicked"); // Debug statement
+    await fetchStory(); // Call the fetchStory function
+    setCurrentStep(4);
   };
 
   return (
@@ -45,7 +54,7 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
       <div className="mt-4">
         <button
           className="bg-purple-500 text-white p-3 rounded absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1"
-          onClick={() => setCurrentStep(4)}
+          onClick={handleGenerateClick} // Changed this line
         >
           Generate
           <svg

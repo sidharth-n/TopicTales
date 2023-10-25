@@ -12,14 +12,59 @@ const App: React.FC = () => {
   const [topic, setTopic] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLevel, setSelectedLevel] = useState("");
+  const [response, setResponse] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   console.log("Current topic:", topic);
   console.log("Selected categories:", selectedCategories);
   console.log("Selected level:", selectedLevel);
 
+  const fetchStory = async () => {
+    setIsLoading(true);
+    const newPrompt = `
+ Generate a ${selectedLevel}-level short interesting story in the ${selectedCategories[0]} category focused on the topic of ${topic}.
+ the story is supposd be around 500 words and it shouls have a very short apt catchy title as well. use simple english words to make the story and finally i need a prorper short(around 100 words)
+ expalantion of the topic. remember this is project to convert any topics to short story so focus ion the topic mentioned and make sue the topic is well explained in the story in a storytelling way. add proper characters and conversations as per required. i need the data back as a json response in the following format. do not sedn anything else than the json in the fommolwing format with 
+ appropriate generated content. make sure to add proper like breaks in the stroy and paragraph tage so that i can use it direcly on my webste without worrying about formatting. here is the sampel json format required :
+{
+  "title": "The title of the story will be here",
+  "story": "The story content, limited to less than 1000 words, will be here",
+  "topic_explanation": "A brief explanation of the selected topic will be here"
+}
+`;
+
+    try {
+      const response = await fetch(
+        "https://api.openai.com/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: newPrompt }],
+            temperature: 0.7,
+          }),
+        }
+      );
+
+      const result = await response.json();
+      const resultContent = result.choices[0].message.content;
+      const parsedData = JSON.parse(resultContent);
+      setResponse(parsedData);
+      console.log(parsedData);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+  console.debug("Debug: fetchStory in App.tsx is:", fetchStory);
 
   return (
     <div
@@ -86,10 +131,15 @@ const App: React.FC = () => {
           selectedLevel={selectedLevel} // Passing down the state
           setSelectedLevel={setSelectedLevel}
           setCurrentStep={setCurrentStep}
+          fetchStory={fetchStory}
         />
       )}
 
-      {currentStep === 4 && <FinalScreen setCurrentStep={setCurrentStep} />}
+      {isLoading ? (
+        <div className="loader">Generating...</div>
+      ) : currentStep === 4 ? (
+        <FinalScreen setCurrentStep={setCurrentStep} response={response} />
+      ) : null}
     </div>
   );
 };
