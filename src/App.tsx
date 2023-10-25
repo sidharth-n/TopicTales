@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const fetchStory = async () => {
     setIsLoading(true);
     const newPrompt = `
-Generate a short interesting story around 500 words long in the ${selectedCategories[0]} category focused on clearly explaining the concept of ${topic}.
+Generate a short interesting story around 300 words long in the ${selectedCategories[0]} category focused on clearly explaining the concept of ${topic}.
 
 The story should have a very short, catchy 1-3 word title that hints at the topic as well. Use simple English words and terminology suitable for a general audience to tell the story.
 
