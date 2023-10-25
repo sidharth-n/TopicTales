@@ -55,7 +55,7 @@ const App: React.FC = () => {
     <a href="/">
       <img 
           src="/src/Assets/TTlogo.png" 
-          alt="TopicTales Logo" 
+          alt="TopicTales" 
           className="logo-size title transition ease-in-out cursor-pointer"
       />
     </a>
