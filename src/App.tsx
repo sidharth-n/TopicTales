@@ -23,15 +23,27 @@ const App: React.FC = () => {
   const fetchStory = async () => {
     setIsLoading(true);
     const newPrompt = `
- Generate a ${selectedLevel}-level short interesting story in the ${selectedCategories[0]} category focused on the topic of ${topic}.
- the story is supposd be around 500 words and it shouls have a very short apt catchy title as well. use simple english words to make the story and finally i need a prorper short(around 100 words)
- expalantion of the topic. remember this is project to convert any topics to short story so focus ion the topic mentioned and make sue the topic is well explained in the story in a storytelling way. add proper characters and conversations as per required. i need the data back as a json response in the following format. do not sedn anything else than the json in the fommolwing format with 
- appropriate generated content. make sure to add proper like breaks in the stroy and paragraph tage so that i can use it direcly on my webste without worrying about formatting. here is the sampel json format required :
+Generate a short entertaining story around 300 words long in the ${selectedCategories[0]} category. The sole purpose of the story is to clearly explain the key concepts, principles and aspects of ${topic} through the plot and character dialog.
+
+Use simple English words suitable for a general audience. The story should have a very short 1-3 word title hinting at the topic.
+
+Creatively weave the factual explanations and definitions of ${topic} into the character dialog and storyline to teach the concepts in a contextual, engaging way. Use interesting characters, conversations, and conflict/resolution to aid the explanations.
+
+Break the story into paragraphs with <p> tags and line breaks <br> for readability.
+
+After the story, summarize the main points covered in the story in a 100 word topic explanation using scientific terminology.
+
+Format as a JSON object with separate title, story, and explanation fields:
+
 {
-  "title": "The title of the story will be here",
-  "story": "The story content, limited to less than 1000 words, will be here",
-  "topic_explanation": "A brief explanation of the selected topic will be here"
+
+"title": "Title here",
+"story": "Story content here",
+"topic_explanation": "topic explanation here"
+
 }
+
+The sole purpose is to explain ${topic} clearly through an engaging 300 word story narrative for a general audience. Do not include anything else in the JSON response.
 `;
 
     try {
