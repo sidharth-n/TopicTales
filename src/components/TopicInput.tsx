@@ -28,7 +28,7 @@ const TopicInput: React.FC<TopicInputProps> = ({ setTopic, setCurrentStep }) => 
   return (
     <div className="mx-3 mt-5 p-5 transition duration-300 ease-in-out fade-in">
       <label className="block text-xl font-extrabold transition duration-300 ease-in-out ">Brief your topic</label>
-      <div className="pt-2 description text-sm font-extrabold text-gray-400 transition duration-300 ease-in-out">
+      <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out">
         This topic/idea will be used to create concept stories
       </div>
 
@@ -45,7 +45,7 @@ const TopicInput: React.FC<TopicInputProps> = ({ setTopic, setCurrentStep }) => 
       ></textarea>
 
       <button
-        className="bg-indigo-500 text-white p-4 pl-8 pr-8 rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out hover:bg-indigo-700"
+        className="bg-indigo-500 text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out hover:bg-indigo-700"
         onClick={() => setCurrentStep(2)}
       >
         Continue 

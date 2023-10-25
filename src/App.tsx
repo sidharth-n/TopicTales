@@ -52,9 +52,15 @@ const App: React.FC = () => {
         ) : (
           <div className="fake-back bg-white p-1 rounded-lg h-7 w-7 transition duration-300 ease-in-out"></div>
         )}
-        <a href="/">
-         <h1 className="title font-extrabold transition ease-in-out cursor-pointer">TopicTales</h1>
-        </a>
+    <a href="/">
+      <img 
+          src="/dist/assets/TTlogo.png" 
+          alt="TopicTales Logo" 
+          className="logo-size title transition ease-in-out cursor-pointer"
+      />
+    </a>
+
+
 
         <button onClick={toggleDarkMode} className="mode-btn mr-5 transition duration-300 ease-in-out">
           <svg

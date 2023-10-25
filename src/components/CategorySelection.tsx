@@ -36,7 +36,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
       <label className="block  text-xl font-extrabold ">
         Pick some category you like
       </label>
-      <div className="pt-2 description text-sm font-extrabold text-gray-400 mb-5 ">
+      <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out mb-5">
         We'll use these as an inspiration.
       </div>
       {categories.map((category) => (
@@ -44,8 +44,8 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
           key={category}
           className={`m-2 p-2 ${
             selectedCategories.includes(category)
-              ? "bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-full font-extrabold text-[14px] px-4"
-              : "bg-gray-100 rounded-full text-[14px] px-4"
+              ? "bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
+              : "bg-gray-100 border-2 border-gray-100 font-medium rounded-full text-[14px] px-4 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-300 transition-all duration-500 ease-in-out"
           }`}
           onClick={() => toggleCategory(category)}
         >

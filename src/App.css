@@ -40,9 +40,18 @@ body {
   font-weight: bold;
 }
 
+.logo-size {
+  width: 120px;  /* Adjust this value as needed */
+  height: auto;  /* This will maintain the aspect ratio */
+}
+
+
 /* @media (max-width: 767px) {
   .container {
     padding: 0 0px;
   }
 } */
+
+
+
 
