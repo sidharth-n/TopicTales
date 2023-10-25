@@ -75,7 +75,9 @@ const App: React.FC = () => {
       <div className="header">
         {currentStep > 1 ? (
           <button
-            className=" bg-gray-200 p-1 rounded-lg"
+            className={`p-1 rounded-lg ${
+              darkMode ? "bg-gray-800" : "bg-gray-200"
+            }`}
             onClick={() => setCurrentStep(currentStep - 1)}
           >
             <svg
@@ -83,12 +85,12 @@ const App: React.FC = () => {
               width="20"
               height="20"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-arrow-left"
+              fill={darkMode ? "#none" : "none"}
+              stroke={darkMode ? "#ffffff" : "currentColor"}
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-left"
             >
               <path d="m12 19-7-7 7-7" />
               <path d="M19 12H5" />
@@ -124,6 +126,7 @@ const App: React.FC = () => {
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
           setCurrentStep={setCurrentStep}
+          isDarkMode={darkMode}
         />
       )}
       {currentStep === 3 && (
@@ -132,13 +135,18 @@ const App: React.FC = () => {
           setSelectedLevel={setSelectedLevel}
           setCurrentStep={setCurrentStep}
           fetchStory={fetchStory}
+          isDarkMode={darkMode}
         />
       )}
 
       {isLoading ? (
         <div className="loader">Generating...</div>
       ) : currentStep === 4 ? (
-        <FinalScreen setCurrentStep={setCurrentStep} response={response} />
+        <FinalScreen
+          setCurrentStep={setCurrentStep}
+          response={response}
+          isDarkMode={darkMode}
+        />
       ) : null}
     </div>
   );

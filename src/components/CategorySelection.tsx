@@ -4,12 +4,14 @@ interface CategorySelectionProps {
   selectedCategories: string[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  isDarkMode: boolean;
 }
 
 const CategorySelection: React.FC<CategorySelectionProps> = ({
   selectedCategories,
   setSelectedCategories,
   setCurrentStep,
+  isDarkMode,
 }) => {
   const categories = [
     "Fantacy",
@@ -44,8 +46,12 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
           key={category}
           className={`m-2 p-2 ${
             selectedCategories.includes(category)
-              ? "bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
-              : "bg-gray-100 border-2 border-gray-100 font-medium rounded-full text-[14px] px-4 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-300 transition-all duration-500 ease-in-out"
+              ? isDarkMode
+                ? "bg-indigo-800 text-indigo-100 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
+                : "bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
+              : isDarkMode
+              ? "bg-gray-700 text-gray-100 border-2 border-gray-800 rounded-full text-[14px] px-4 hover:border-indigo-500 hover:bg-indigo-800 hover:text-indigo-100 transition-all duration-500 ease-in-out"
+              : "bg-gray-100 text-gray-900 border-2 border-gray-100 rounded-full text-[14px] px-4 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-500 transition-all duration-500 ease-in-out"
           }`}
           onClick={() => toggleCategory(category)}
         >
