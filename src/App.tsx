@@ -5,6 +5,7 @@ import CategorySelection from "./components/CategorySelection";
 import LevelSelection from "./components/LevelSelection";
 import FinalScreen from "./components/FinalScreen";
 import "./App.css";
+import logo from "./Assets/TTlogo.png";
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -99,21 +100,29 @@ const App: React.FC = () => {
         ) : (
           <div className="fake-back bg-white p-1 rounded-lg h-7 w-7 "></div>
         )}
-        <h1 className="title">TopicTales</h1>
-        <button onClick={toggleDarkMode} className="mode-btn">
+        <a href="/">
+          <img
+            src={logo}
+            alt="TopicTales Logo"
+            className="logo-size title transition ease-in-out cursor-pointer"
+          />
+        </a>
+        <button className="mode-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-moon"
           >
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            <rect width="24" height="24" rx="6" fill="white" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7 6C6.44772 6 6 6.44772 6 7C6 7.55228 6.44772 8 7 8H17C17.5523 8 18 7.55228 18 7C18 6.44772 17.5523 6 17 6H7ZM7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18H17C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16H7Z"
+              fill="#040415"
+            />
+            <rect x="3" y="11" width="18" height="2" rx="1" fill="#040415" />
           </svg>
         </button>
       </div>
