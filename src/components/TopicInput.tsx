@@ -33,28 +33,30 @@ const TopicInput: React.FC<TopicInputProps> = ({
   return (
     <div className="mx-3 mt-5 p-5 transition duration-300 ease-in-out fade-in">
       <label className="block text-xl font-extrabold transition duration-300 ease-in-out">
-        Brief your topic
+      Suggest a Topic
       </label>
-      <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out">
-        This topic/idea will be used to create concept stories
+      <div className="pt-2 description text-sm font-medium text-slate-400 transition duration-300 ease-in-out">
+        This will be the spark to create a concept story just for you.
       </div>
 
       <textarea
         ref={textareaRef}
         rows={1}
-        className={`p-3 w-full mb-4 mt-8 rounded-lg bg-gray-100 placeholder:italic placeholder:text-slate-400
+        className={`p-3 w-full  mt-8 rounded-lg bg-slate-100  placeholder:text-slate-400 placeholder:text-sm focus:ring-2 focus:ring-bg-indigo-200
                     ${
                       borderVisible ? "border" : "border-0"
                     } transition duration-300 ease-in-out resize-none`}
         value={inputValue}
         onClick={handleInputClick}
         onChange={handleInputChange}
-        placeholder="for eg: Artificial Intelligence"
+        placeholder="Enter a topic"
         style={{ overflowY: "hidden" }}
       ></textarea>
-
+        <div className=" description text-xs font-base text-slate-400 italic transition duration-300 ease-in-out">
+          Eg: Aritificial Intelligence
+       </div>
       <button
-        className={`text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out ${
+        className={`text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out  ${
           isButtonDisabled
             ? "bg-indigo-400"
             : "hover:bg-indigo-700 bg-indigo-500"

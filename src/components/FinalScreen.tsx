@@ -16,9 +16,9 @@ const FinalScreen: React.FC<FinalScreenProps> = ({
   console.debug("Debug: Displaying response in FinalScreen:", response);
 
   return (
-    <div className="final-screen-container overflow-y-auto max-h-[80vh]">
-      <div className="px-4 relative flex flex-col items-center">
-        <h1 className="story-title font-bold text-lg">{response.title}</h1>
+    <div className="final-screen-container overflow-y-auto max-h-[80vh] mb-3">
+      <div className="px-5 relative flex flex-col items-center text-center">
+        <h1 className="story-title font-bold text-lg text-center">{response.title}</h1>
         <div
           className="story p-2 text-base pb-8"
           dangerouslySetInnerHTML={{ __html: response.story }}

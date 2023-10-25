@@ -36,7 +36,7 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
       <label className="block text-xl font-extrabold">
         Pick a category you like
       </label>
-      <div className="pt-2 description text-sm font-medium text-gray-400 transition duration-300 ease-in-out mb-5">
+      <div className="pt-2 description text-sm font-medium text-slate-400 transition duration-300 ease-in-out mb-5">
         We'll use these as inspiration.
       </div>
       {categories.map((category) => (
@@ -48,8 +48,8 @@ const CategorySelection: React.FC<CategorySelectionProps> = ({
                 ? "bg-indigo-800 text-indigo-100 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
                 : "bg-indigo-50 text-indigo-500 border-2 border-indigo-500 rounded-full font-medium text-[14px] px-4 transition-all duration-500 ease-in-out"
               : isDarkMode
-              ? "bg-gray-700 text-gray-100 border-2 border-gray-800 rounded-full text-[14px] px-4 hover:border-indigo-500 hover:bg-indigo-800 hover:text-indigo-100 transition-all duration-500 ease-in-out"
-              : "bg-gray-100 text-gray-900 border-2 border-gray-100 rounded-full text-[14px] px-4 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-500 transition-all duration-500 ease-in-out"
+              ? "bg-slate-700 text-slate-100 border-2 border-slate-800 rounded-full  font-medium text-[14px] px-4 hover:border-indigo-500 hover:bg-indigo-800 hover:text-indigo-100 transition-all duration-500 ease-in-out"
+              : "bg-slate-100 text-slate-500 border-2 border-slate-100 rounded-full font-medium text-[14px] px-4 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-300 transition-all duration-500 ease-in-out"
           }`}
           onClick={() => toggleCategory(category)}
         >
