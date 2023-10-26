@@ -33,7 +33,7 @@ const TopicInput: React.FC<TopicInputProps> = ({
   return (
     <div className="mx-3 mt-5 p-5 transition duration-300 ease-in-out fade-in">
       <label className="block text-xl font-extrabold transition duration-300 ease-in-out">
-      Suggest a Topic
+      Give us a topic
       </label>
       <div className="pt-2 description text-sm font-medium text-slate-400 transition duration-300 ease-in-out">
         This will be the spark to create a concept story just for you.
@@ -49,7 +49,7 @@ const TopicInput: React.FC<TopicInputProps> = ({
         value={inputValue}
         onClick={handleInputClick}
         onChange={handleInputChange}
-        placeholder="Enter a topic"
+        placeholder="Write your topic here"
         style={{ overflowY: "hidden" }}
       ></textarea>
         <div className=" description text-xs font-base text-slate-400 italic transition duration-300 ease-in-out">
