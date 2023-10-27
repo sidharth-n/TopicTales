@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
-
-
 function LandingPage() {
-
     const controls = useAnimation();
 
     useEffect(() => {
@@ -21,7 +18,6 @@ function LandingPage() {
             transition: { duration: 1 }
         });
 
-        // Cleanup the event listener on unmount
         return () => {
             if (videoElement) {
                 videoElement.removeEventListener('ended');
@@ -39,15 +35,45 @@ function LandingPage() {
         }
     };
 
-   
+    const parentVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2
+            }
+        }
+    };
 
     const childVariants = {
         hidden: { opacity: 0, y: '50px' },
-        show: { opacity: 1, y: '0' }
+        show: { 
+            opacity: 1, 
+            y: '0',
+            transition: {
+                type: 'spring',
+                stiffness: 80,
+                damping: 20
+            }
+        }
+    };
+
+    const buttonShineVariants = {
+        shine: {
+            x: ["0%", "150%"],
+            transition: {
+                repeat: Infinity,
+                duration: 1.5
+            }
+        }
     };
 
     return (
-        <motion.div className="overflow-x-hidden antialiased font-jakarta relative" initial={{ opacity: 0 }} animate={controls}>
+        <motion.div className="overflow-x-hidden antialiased font-jakarta relative" 
+            variants={parentVariants}
+            initial="hidden" 
+            animate="show">
 
             {/* Video Background */}
             <video
@@ -61,7 +87,7 @@ function LandingPage() {
             ></video>
 
             {/* HERO SECTION */}
-            <motion.div className="relative flex items-center justify-center h-screen z-0 bg-opacity-0"  initial="hidden" animate="show">
+            <motion.div className="relative flex items-center justify-center h-screen z-0 bg-opacity-0">
                 <motion.div className="container flex flex-col align-middle items-center justify-center max-w-4xl px-8 mx-auto text-center lg:text-left">
                     <motion.a href="/" className="flex items-center justify-center mb-16 pb-6" variants={childVariants}>
                         <motion.img src="https://imgtr.ee/images/2023/10/25/4bbbe29706b5fd46175b4a1eb048863b.png" alt="Landmark Logo" className="lg:h-8 md:h-7 h-7 " />
@@ -73,7 +99,7 @@ function LandingPage() {
                         TopicTales takes complex concepts and transforms them instantly into engaging tales tailored to topics with the power of AI.
                     </motion.p>
                     <motion.a href="/app"
-                        className="self-center flex flex-row px-8 py-3.5 text-base font-bold text-slate-50 bg-indigo-500 border-t border-gray-200 rounded-xl shadow-xl sm:text-lg xl:text-xl"
+                        className="self-center flex flex-row px-8 py-3.5 text-base font-bold text-slate-50 bg-indigo-500 border-t border-gray-200 rounded-xl shadow-xl sm:text-lg xl:text-xl transition duration-300 ease-in-out"
                         variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
