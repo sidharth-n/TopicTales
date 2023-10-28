@@ -55,31 +55,56 @@ const TopicInput: React.FC<TopicInputProps> = ({
         <div className=" description text-xs font-base text-slate-400 italic transition duration-300 ease-in-out">
           Eg: Aritificial Intelligence
        </div>
-      <button
-        className={`text-white p-4 pl-8 pr-8 font-medium rounded-lg absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center gap-1 transition duration-300 ease-in-out  ${
-          isButtonDisabled
-            ? "bg-indigo-400"
-            : "hover:bg-indigo-700 bg-indigo-500"
-        }`}
-        onClick={() => setCurrentStep(2)}
-        disabled={isButtonDisabled}
-      >
-        Continue
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="15"
-          height="10"
-          viewBox="0 0 15 10"
-          fill="none"
+       
+       
+      <div className="inline-flex rounded-md shadow-sm absolute left-1/2 transform -translate-x-1/2 bottom-12 text-sm flex flex-row items-center transition duration-300 ease-in-out shadow-no" role="group">
+        <button
+          className={`text-white p-4 pl-8 pr-8 font-medium rounded-l-lg inline-flex items-center gap-2 ${
+            isButtonDisabled
+              ? "bg-indigo-400"
+              : "hover:bg-indigo-700 bg-indigo-500"
+          }`}
+          onClick={() => setCurrentStep(2)}
+          disabled={isButtonDisabled}
         >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M10.8848 0.470085L14.6498 4.21809C14.9328 4.50009 14.9328 4.99909 14.6498 5.28209L10.8848 9.03009C10.5908 9.32209 10.1158 9.32109 9.82375 9.02709C9.53175 8.73309 9.53175 8.25909 9.82575 7.96609L12.3028 5.49909L0.888 5.5C0.473 5.5 0.138 5.164 0.138 4.75C0.138 4.336 0.473 4 0.888 4L12.3028 3.99909L9.82575 1.53309C9.67875 1.38609 9.60575 1.19409 9.60575 1.00109C9.60575 0.810085 9.67875 0.618085 9.82375 0.472085C10.1158 0.179085 10.5908 0.178085 10.8848 0.470085Z"
-            fill="white"
-          />
-        </svg>
-      </button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <g clip-path="url(#clip0_784_595)">
+              <path d="M13.125 5C12.2187 5 11.7125 5.9 11.9187 6.56875L9.7 8.79375C9.5125 8.7375 9.2375 8.7375 9.05 8.79375L7.45625 7.2C7.66875 6.53125 7.1625 5.625 6.25 5.625C5.34375 5.625 4.83125 6.525 5.04375 7.2L2.19375 10.0437C1.525 9.8375 0.625 10.3437 0.625 11.25C0.625 11.9375 1.1875 12.5 1.875 12.5C2.78125 12.5 3.2875 11.6 3.08125 10.9312L5.925 8.08125C6.1125 8.1375 6.3875 8.1375 6.575 8.08125L8.16875 9.675C7.95625 10.3437 8.4625 11.25 9.375 11.25C10.2813 11.25 10.7938 10.35 10.5813 9.675L12.8062 7.45625C13.475 7.6625 14.375 7.15625 14.375 6.25C14.375 5.5625 13.8125 5 13.125 5Z" fill="white"/>
+              <path d="M9.375 5.625L9.9625 4.33125L11.25 3.75L9.9625 3.16875L9.375 1.875L8.8 3.16875L7.5 3.75L8.8 4.33125L9.375 5.625Z" fill="white"/>
+              <path d="M2.1875 6.875L2.5 5.625L3.75 5.3125L2.5 5L2.1875 3.75L1.875 5L0.625 5.3125L1.875 5.625L2.1875 6.875Z" fill="white"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_784_595">
+                <rect width="15" height="15" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+          Simplify
+
+        </button>
+        <button
+          className={`text-white p-4 pl-8 pr-8 font-medium rounded-r-lg inline-flex items-center gap-2   ${
+            isButtonDisabled
+              ? "bg-indigo-400"
+              : "hover:bg-indigo-700 bg-indigo-500"
+          }`}
+          onClick={() => setCurrentStep(2)}
+          disabled={isButtonDisabled}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <g clip-path="url(#clip0_784_603)">
+              <path d="M11.875 5.625L12.6562 3.90625L14.375 3.125L12.6562 2.34375L11.875 0.625L11.0938 2.34375L9.375 3.125L11.0938 3.90625L11.875 5.625ZM7.1875 5.9375L5.625 2.5L4.0625 5.9375L0.625 7.5L4.0625 9.0625L5.625 12.5L7.1875 9.0625L10.625 7.5L7.1875 5.9375ZM11.875 9.375L11.0938 11.0938L9.375 11.875L11.0938 12.6562L11.875 14.375L12.6562 12.6562L14.375 11.875L12.6562 11.0938L11.875 9.375Z" fill="white"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_784_603">
+                <rect width="15" height="15" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+          Storify
+
+        </button>
+        </div>
     </div>
   );
 };

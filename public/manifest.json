@@ -1,6 +1,6 @@
 {
-  "name": "TopicTales",
-  "short_name": "Topic Tales",
+  "name": "SimpleStories",
+  "short_name": "SimpleStories ",
   "description": "Boring facts to short stories",
   "start_url": "/",
   "display": "standalone",
