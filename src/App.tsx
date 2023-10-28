@@ -85,7 +85,10 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
         darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
       } font-jakarta`}
     >
-      <div className="header">
+
+
+      <div className="header z-10">
+        
         {currentStep > 1 ? (
           <button
             className={`p-1 rounded-lg ml-6 ${
@@ -114,8 +117,8 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
         )}
         <a href="/">
           <img
-            src="https://imgtr.ee/images/2023/10/25/4bbbe29706b5fd46175b4a1eb048863b.png"
-            alt="TopicTales"
+            src="https://imgtr.ee/images/2023/10/28/5649c3d558b18a1288979f803070a1b1.png"
+            alt="SimpleStories"
             className="logo-size title transition ease-in-out cursor-pointer mt-5 mb-5"
           />
         </a>
@@ -137,6 +140,9 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
             <rect x="3" y="11" width="18" height="2" rx="1" fill="#040415" />
           </svg>
         </button>
+
+
+
       </div>
       <ProgressBar currentStep={currentStep} />
       {currentStep === 1 && (
@@ -174,3 +180,4 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
 };
 
 export default App;
+
