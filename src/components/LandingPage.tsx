@@ -77,7 +77,7 @@ function LandingPage() {
       animate="show"
     >
       {/* Video Background */}
-      <video
+      {/*      <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25"
         src="/videobg-5.mp4"
         type="video/mp4"
@@ -85,7 +85,7 @@ function LandingPage() {
         loop
         muted
         playsInline
-      ></video>
+      ></video> */}
 
       {/* HERO SECTION */}
       <motion.div className="relative flex items-center justify-center h-screen z-0 bg-opacity-0">
