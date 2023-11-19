@@ -1,16 +1,24 @@
-import React, { useEffect } from "react"
+import React, { useEffect, FC } from "react"
 import { motion, useAnimation } from "framer-motion"
 
-function LandingPage() {
+interface LandingPageProps {
+  setCurrentStep?: (step: number) => void
+}
+
+const LandingPage: FC<LandingPageProps> = ({ setCurrentStep = () => {} }) => {
   const controls = useAnimation()
 
   useEffect(() => {
     const videoElement = document.querySelector("video")
+
+    const handleVideoEnd = (event: Event) => {
+      const target = event.target as HTMLVideoElement
+      target.currentTime = 0
+      target.play()
+    }
+
     if (videoElement) {
-      videoElement.addEventListener("ended", event => {
-        event.target.currentTime = 0
-        event.target.play()
-      })
+      videoElement.addEventListener("ended", handleVideoEnd)
     }
 
     controls.start({
@@ -20,7 +28,7 @@ function LandingPage() {
 
     return () => {
       if (videoElement) {
-        videoElement.removeEventListener("ended")
+        videoElement.removeEventListener("ended", handleVideoEnd)
       }
     }
   }, [controls])
@@ -77,7 +85,7 @@ function LandingPage() {
       animate="show"
     >
       {/* Video Background */}
-      {/*      <video
+      <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25"
         src="/videobg-5.mp4"
         type="video/mp4"
@@ -85,7 +93,7 @@ function LandingPage() {
         loop
         muted
         playsInline
-      ></video> */}
+      ></video>
 
       {/* HERO SECTION */}
       <motion.div className="relative flex items-center justify-center h-screen z-0 bg-opacity-0">
@@ -118,8 +126,12 @@ function LandingPage() {
             SimpleStories takes complex concepts and transforms them instantly
             into engaging tales tailored to topics with the power of AI.
           </motion.p>
+
           <motion.a
-            href="/app"
+            onClick={() => {
+              setCurrentStep(1)
+              console.log("clicked")
+            }} // update currentStep to 1 when "Try Now" is clicked
             className="self-center flex flex-row px-8 py-3.5 text-base font-bold text-slate-50 bg-indigo-500 border-t border-gray-200 rounded-xl shadow-xl sm:text-lg xl:text-xl transition duration-300 ease-in-out"
             variants={buttonVariants}
             whileHover="hover"

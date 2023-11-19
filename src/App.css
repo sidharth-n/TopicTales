@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  /* background-color: #f7f7f7; */
+  background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,17 +41,17 @@ body {
 }
 
 .logo-size {
-  width: 140px;  /* Adjust this value as needed */
-  height: auto;  /* This will maintain the aspect ratio */
+  width: 120px; /* Adjust this value as needed */
+  height: auto; /* This will maintain the aspect ratio */
 }
 
+.logo-size {
+  width: 120px; /* Adjust this value as needed */
+  height: auto; /* This will maintain the aspect ratio */
+}
 
 /* @media (max-width: 767px) {
   .container {
     padding: 0 0px;
   }
 } */
-
-
-
-
