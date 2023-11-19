@@ -103,7 +103,7 @@ const LandingPage: FC<LandingPageProps> = ({ setCurrentStep }) => {
             variants={childVariants}
           >
             <motion.img
-              src="https://imgtr.ee/images/2023/10/28/5649c3d558b18a1288979f803070a1b1.png"
+              src="https://imgtr.ee/images/2023/11/19/0b53f918a4e48a5884d2d6bcbe13a424.png"
               alt="Logo"
               className="lg:h-8 md:h-7 h-7 "
             />
