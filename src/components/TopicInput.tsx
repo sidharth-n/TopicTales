@@ -66,7 +66,7 @@ const TopicInput: React.FC<TopicInputProps> = ({
               ? "bg-indigo-400"
               : "hover:bg-indigo-700 bg-indigo-500"
           }`}
-          onClick={() => setCurrentStep(2)}
+          onClick={() => setCurrentStep(3)} // Change to step 3 for Simplify
           disabled={isButtonDisabled}
         >
           <svg
@@ -99,12 +99,12 @@ const TopicInput: React.FC<TopicInputProps> = ({
           Simplify
         </button>
         <button
-          className={`text-white p-4 pl-8 pr-8 font-medium rounded-r-lg inline-flex items-center gap-2   ${
+          className={`text-white p-4 pl-8 pr-8 font-medium rounded-r-lg inline-flex items-center gap-2 ${
             isButtonDisabled
               ? "bg-indigo-400"
               : "hover:bg-indigo-700 bg-indigo-500"
           }`}
-          onClick={() => setCurrentStep(2)}
+          onClick={() => setCurrentStep(2)} // Change to step 2 for Storify
           disabled={isButtonDisabled}
         >
           <svg
@@ -132,5 +132,4 @@ const TopicInput: React.FC<TopicInputProps> = ({
     </div>
   )
 }
-
 export default TopicInput

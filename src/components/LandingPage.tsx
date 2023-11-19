@@ -2,10 +2,10 @@ import React, { useEffect, FC } from "react"
 import { motion, useAnimation } from "framer-motion"
 
 interface LandingPageProps {
-  setCurrentStep?: (step: number) => void
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>
 }
 
-const LandingPage: FC<LandingPageProps> = ({ setCurrentStep = () => {} }) => {
+const LandingPage: FC<LandingPageProps> = ({ setCurrentStep }) => {
   const controls = useAnimation()
 
   useEffect(() => {
@@ -99,7 +99,6 @@ const LandingPage: FC<LandingPageProps> = ({ setCurrentStep = () => {} }) => {
       <motion.div className="relative flex items-center justify-center h-screen z-0 bg-opacity-0">
         <motion.div className="container flex flex-col align-middle items-center justify-center max-w-4xl px-8 mx-auto text-center lg:text-left">
           <motion.a
-            href="/"
             className="flex items-center justify-center mb-16 pb-6"
             variants={childVariants}
           >
@@ -127,11 +126,8 @@ const LandingPage: FC<LandingPageProps> = ({ setCurrentStep = () => {} }) => {
             into engaging tales tailored to topics with the power of AI.
           </motion.p>
 
-          <motion.a
-            onClick={() => {
-              setCurrentStep(1)
-              console.log("clicked")
-            }} // update currentStep to 1 when "Try Now" is clicked
+          <motion.button
+            onClick={() => setCurrentStep(1)} // Navigate to the next step when clicked
             className="self-center flex flex-row px-8 py-3.5 text-base font-bold text-slate-50 bg-indigo-500 border-t border-gray-200 rounded-xl shadow-xl sm:text-lg xl:text-xl transition duration-300 ease-in-out"
             variants={buttonVariants}
             whileHover="hover"
@@ -146,7 +142,7 @@ const LandingPage: FC<LandingPageProps> = ({ setCurrentStep = () => {} }) => {
             >
               <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z" />
             </svg>
-          </motion.a>
+          </motion.button>
         </motion.div>
       </motion.div>
     </motion.div>

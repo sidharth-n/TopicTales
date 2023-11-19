@@ -85,7 +85,7 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
 
   return (
     <div
-      className={` container App ${
+      className={`container App ${
         darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
       } font-jakarta`}
     >
