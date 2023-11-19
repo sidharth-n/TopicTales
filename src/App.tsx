@@ -110,7 +110,7 @@ The sole purpose is to explain ${topic} clearly through an engaging 300 word sto
             )}
             <a href="/">
               <img
-                src="https://imgtr.ee/images/2023/10/28/5649c3d558b18a1288979f803070a1b1.png"
+                src="https://imgtr.ee/images/2023/11/19/0b53f918a4e48a5884d2d6bcbe13a424.png"
                 alt="SimpleStories"
                 className="logo-size title transition ease-in-out cursor-pointer mt-5 mb-5"
               />
